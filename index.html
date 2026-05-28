@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin Lowell Swanson | Educational Web Design & Digital Strategy</title>
+    
+    <!-- Brand Font Architecture -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --bg-base: #070a0e;
+            --bg-surface: #0d131a;
+            --bg-surface-elevated: #141c27;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --accent-gold: #d4af37;
+            --accent-gold-muted: rgba(212, 175, 55, 0.15);
+            --border-color: rgba(255, 255, 255, 0.08);
+
+            /* Brand Fonts */
+            --font-heading: 'Barlow', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-editorial: 'Prata', serif;
+
+            /* Compressed Layout Spacing System */
+            --section-padding-v: 4.5rem;
+            --section-padding-h: 4rem;
+            --container-max: 1200px;
+            --gap-tight: 1rem;
+            --gap-medium: 2rem;
+        }
+
+        /* Reset & Global Base Layout */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+        }
+
+        body {
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Background Portrait Asset (Non-Amateur Framework) */
+        .ambient-portrait-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            mix-blend-mode: luminosity;
+            opacity: 0.18;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><rect width="1080" height="1350" fill="%23141c27"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="28" fill="%23a0aec0">PORTRAIT PLACEHOLDER (1080px x 1350px)</text></svg>');
+            background-size: cover;
+            background-position: center right;
+        }
+
+        /* Subtle Layer Gradient Overlay to let the Image Shine and Text Pop */
+        .ambient-gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            background: linear-gradient(to right, var(--bg-base) 45%, rgba(7, 10, 14, 0.85) 75%, var(--bg-base) 100%);
+        }
+
+        /* Scannable Structural Utilities */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Top Identity Flag Badge */
+        .top-identity-flag {
+            background-color: var(--bg-surface-elevated);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.4rem 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Global Header & Navigation */
+        .site-header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem var(--section-padding-h);
+            background-color: rgba(7, 10, 14, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Section Global Compression */
+        section {
+            padding: var(--section-padding-v) var(--section-padding-h);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-label {
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        /* Hero Layout Elements */
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--gap-medium);
+            align-items: center;
+        }
+
+        .hero-main-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-sub-headline {
+            font-family: var(--font-body);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-body-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 580px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Clean Unified Button Actions */
+        .action-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.65rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: var(--bg-base);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-base);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.05);
+            border-color: var(--text-primary);
+        }
+
+        /* Theatrical Editorial Sidebar Callouts */
+        .hero-sidebar-quote {
+            background: rgba(13, 19, 26, 0.4);
+            border-left: 2px solid var(--accent-gold);
+            padding: 1.2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .editorial-script-quote {
+            font-family: var(--font-editorial);
+            font-size: 1.4rem;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .luxury-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .luxury-tag-label {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background-color: var(--bg-surface-elevated);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.6rem;
+            color: var(--text-secondary);
+        }
+
+        /* Selected Works Stagger Grid Elements */
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-intro-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+        }
+
+        .case-studies-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .case-study-node {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .case-study-node:nth-child(even) {
+            direction: rtl;
+        }
+
+        .case-study-node:nth-child(even) .case-content-panel {
+            direction: ltr;
+        }
+
+        /* Dynamic CSS Fast Transitions Slideshow Frame */
+        .slideshow-display-frame {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background-color: var(--bg-surface-elevated);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: fastSlideLoop 12s infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide-layer:nth-child(1) { animation-delay: 0s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%23141c27"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Everyday Advocates - Directory View</text></svg>'); }
+        .slide-layer:nth-child(2) { animation-delay: 3s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%230d131a"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Everyday Advocates - 15-Cat Resource Module</text></svg>'); }
+        .slide-layer:nth-child(3) { animation-delay: 6s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%231a2432"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Everyday Advocates - Live Issue Submission Form</text></svg>'); }
+        .slide-layer:nth-child(4) { animation-delay: 9s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%23070a0e"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Everyday Advocates - Civic Tracking System</text></svg>'); }
+
+        @keyframes fastSlideLoop {
+            0%, 20% { opacity: 1; }
+            25%, 95% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .static-display-frame {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background-color: var(--bg-surface-elevated);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .case-content-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .case-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .case-blurb-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.45;
+        }
+
+        .case-hyperlink {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.25rem;
+            transition: color 0.2s ease;
+        }
+
+        .case-hyperlink:hover {
+            color: var(--accent-gold);
+        }
+
+        /* High-Drama Compressed Philosophy Layout Workspace */
+        .motto-banner-row {
+            border-bottom: 2px solid var(--text-primary);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .motto-banner-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 4.5vw, 4.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 0.85;
+            letter-spacing: -0.02em;
+        }
+
+        .philosophy-grid-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .philosophy-editorial-narrative {
+            font-family: var(--font-body);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .philosophy-editorial-narrative strong {
+            color: var(--text-primary);
+        }
+
+        /* Tightened Custom Category Grid System */
+        .client-matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .category-matrix-item {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .category-matrix-item:hover {
+            border-color: var(--accent-gold);
+            background-color: var(--bg-surface-elevated);
+            transform: translateY(-2px);
+        }
+
+        .category-item-label {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .category-item-desc {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.35;
+        }
+
+        /* Call To Action Conversion Module */
+        .cta-workspace-card {
+            background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-elevated) 100%);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-card-heading {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-card-subtext {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+            line-height: 1.45;
+        }
+
+        /* Clean Identity Footer Layout */
+        .site-footer {
+            padding: 1.5rem var(--section-padding-h);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Mobile Spatial Stabilization Media Queries (Resolving element drift from image_da6118.png) */
+        @media (max-width: 968px) {
+            :root {
+                --section-padding-v: 3rem;
+                --section-padding-h: 1.5rem;
+            }
+
+            .ambient-portrait-bg {
+                width: 100vw;
+                opacity: 0.08;
+                background-position: center;
+            }
+
+            .ambient-gradient-overlay {
+                background: linear-gradient(to bottom, rgba(7,10,14,0.92) 0%, rgba(7,10,14,0.96) 100%);
+            }
+
+            .hero-layout, 
+            .case-study-node, 
+            .philosophy-grid-block {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+            }
+
+            .case-study-node:nth-child(even) {
+                direction: ltr;
+            }
+
+            .motto-banner-title {
+                font-size: 2.6rem;
+                line-height: 1.0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --section-padding-v: 2.5rem;
+                --section-padding-h: 1rem;
+            }
+
+            .client-matrix-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .action-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
+
+            .footer-wrap {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Image & Color Gradient Layers -->
+    <div class="ambient-portrait-bg"></div>
+    <div class="ambient-gradient-overlay"></div>
+
+    <!-- Tasteful Top Identity Flag Badge -->
+    <div class="top-identity-flag">
+        <span>🏳️‍🌈</span> Proudly LGBTQIA+ Owned & Operated
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="container header-wrap">
+            <a href="#" class="brand-name">Benjamin Lowell Swanson</a>
+            <nav class="main-nav">
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#approach" class="nav-link">Approach</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Compressed Hero Section -->
+        <section id="hero">
+            <div class="container hero-layout">
+                <div class="hero-left-content">
+                    <span class="section-label">Educational Web Design & Digital Strategy</span>
+                    <h1 class="hero-main-title">Websites with rhythm, clarity, and soul.</h1>
+                    <p class="hero-sub-headline">Where digital structure meets human storytelling.</p>
+                    <p class="hero-body-text">
+                        I design thoughtful, highly-accessible digital experiences for learning communities, nonprofits, faith communities, and creatives. Shaped by a professional background in PreK-12 education, music performance, and civic leadership, I build clean, intuitive websites that help mission-driven organizations and artists speak clearly to the communities they serve.
+                    </p>
+                    <div class="action-group">
+                        <a href="#work" class="btn btn-primary">View Selected Work</a>
+                        <a href="#contact" class="btn btn-secondary">Start a Conversation</a>
+                    </div>
+                </div>
+
+                <div class="hero-right-content">
+                    <!-- Integrated Theatrical Branding Block -->
+                    <div class="hero-sidebar-quote">
+                        <p class="editorial-script-quote">“Designed by an educator. Composed like a performance.”</p>
+                        <div class="luxury-badge-container">
+                            <span class="luxury-tag-label">Accessibility-Conscious</span>
+                            <span class="luxury-tag-label">Mission-Driven</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Work Gallery Section -->
+        <section id="work">
+            <div class="container">
+                <span class="section-label">Selected Work</span>
+                <h2 class="section-title">Digital environments built with purpose.</h2>
+                <p class="section-intro-text">
+                    My design practice centers around clean structural systems, deep aesthetic atmosphere, and complete accessibility guidelines. Whether tailoring architectures for a school layout, an advocacy program, an affirming church home, or an independent artist, the target is to spark instant trust and dynamic engagement.
+                </p>
+
+                <div class="case-studies-stack">
+                    <!-- Case Study 1: Everyday Advocates -->
+                    <div class="case-study-node">
+                        <div class="slideshow-display-frame">
+                            <div class="slide-layer"></div>
+                            <div class="slide-layer"></div>
+                            <div class="slide-layer"></div>
+                            <div class="slide-layer"></div>
+                        </div>
+                        <div class="case-content-panel">
+                            <h3 class="case-title">Everyday Advocates</h3>
+                            <p class="case-blurb-text">
+                                A vibrant digital ecosystem crafted for a grassroots civic non-profit. This multi-layered platform features an integrated 15-category public resource directory and real-time community reporting forms, streamlining complex civic engagement into a clear, high-access interface built to organize and support everyday neighborhood issues.
+                            </p>
+                            <a href="https://everydayadvocates.org/" target="_blank" class="case-hyperlink">Explore the Project →</a>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 2: Colonial Beach Baptist Church -->
+                    <div class="case-study-node">
+                        <div class="static-display-frame" style="background-image: linear-gradient(rgba(13,19,26,0.4), rgba(13,19,26,0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%230d131a"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Colonial Beach Baptist - Clean Structural Redesign</text></svg>');">
+                        </div>
+                        <div class="case-content-panel">
+                            <h3 class="case-title">Colonial Beach Baptist</h3>
+                            <p class="case-blurb-text">
+                                A graceful digital identity redesign built to expand local community outreach and welcome new families. The layout mirrors the strong, classic architectural lines of the physical building, carefully balancing comprehensive administrative site organization with an open, caring atmosphere.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 3: Zoe McCray -->
+                    <div class="case-study-node">
+                        <div class="static-display-frame" style="background-image: linear-gradient(rgba(13,19,26,0.4), rgba(13,19,26,0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%23141c27"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Zoe McCray - Editorial Portfolio</text></svg>');">
+                        </div>
+                        <div class="case-content-panel">
+                            <h3 class="case-title">Zoe McCray</h3>
+                            <p class="case-blurb-text">
+                                An atmospheric, premium editorial showcase tailored for a multi-faceted vocal recording artist, arranger, and musical theater director. This live digital portfolio structure balances an elegant fine-arts aesthetic with clean, performance-driven multi-genre professional storytelling.
+                            </p>
+                            <a href="https://zoemccray.com/" target="_blank" class="case-hyperlink">Explore the Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Compressed Approach & Philosophy Section -->
+        <section id="approach">
+            <div class="container">
+                <span class="section-label">Approach</span>
+                <div class="motto-banner-row">
+                    <h2 class="motto-banner-title">Honor where your voice is at.</h2>
+                </div>
+
+                <div class="philosophy-grid-block">
+                    <div class="philosophy-editorial-narrative">
+                        <p>
+                            In music education and vocal coaching, my guiding rule has always been to <strong>honor where your voice is at</strong>. I bring that exact same philosophy to digital strategy and web development.
+                        </p>
+                        <p>
+                            Your online presence shouldn’t copy someone else, nor should it rely on a stiff, generic corporate template. It should meet your organization or studio exactly where it is — capturing your authentic purpose, your real-world community impact, and your true personality.
+                        </p>
+                        <p>
+                            Websites are far more than rigid marketing tools; they are environments that real people step into. By balancing structured educational layouts with the natural cadence of storytelling, I compose digital channels where your unique work is heard clearly and beautifully.
+                        </p>
+                    </div>
+
+                    <div>
+                        <!-- Tightened Category Grid -->
+                        <div class="client-matrix-grid">
+                            <div class="category-matrix-item">
+                                <span class="category-item-label">Learning Communities</span>
+                                <p class="category-item-desc">Your website is often the first thing a prospective family sees, before they ever visit a classroom. I build sites that communicate safety, structure, and culture at a glance.</p>
+                            </div>
+                            <div class="category-matrix-item">
+                                <span class="category-item-label">Nonprofit & Civic Groups</span>
+                                <p class="category-item-desc">Donors and volunteers decide in seconds whether to trust you. Your site should make that decision easy by showing impact, building credibility, and making it simple to get involved.</p>
+                            </div>
+                            <div class="category-matrix-item">
+                                <span class="category-item-label">Creatives & Studios</span>
+                                <p class="category-item-desc">Whether you're a teaching artist, Broadway performer, or running a multi-age studio, your online presence should book clients, showcase your work, and reflect the caliber of what you do.</p>
+                            </div>
+                            <div class="category-matrix-item">
+                                <span class="category-item-label">Inclusive Faith Spaces</span>
+                                <p class="category-item-desc">Your congregation is a community, and your website should feel like one, too! I work with LGBTQIA+ affirming faith spaces, building warm, welcoming digital homes where every visitor knows they belong.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conversational Contact Conversion Card -->
+        <section id="contact">
+            <div class="container">
+                <div class="cta-workspace-card">
+                    <h2 class="cta-card-heading">Let’s build something thoughtful.</h2>
+                    <p class="cta-card-subtext">
+                        If you are a mission-driven organization, an inclusive faith community, an educational institution, or a professional performing artist ready to elevate your digital footprint, you deserve a design partner who understands your world.
+                    </p>
+                    <div style="display: flex; justify-content: center;">
+                        <a href="mailto:benlswanson3@gmail.com" class="btn btn-primary">Email Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Clean Structural Identity Footer -->
+    <footer class="site-footer">
+        <div class="container footer-wrap">
+            <div>&copy; 2026 Benjamin Lowell Swanson</div>
+            <div>Educational Web Design & Digital Strategy</div>
+        </div>
+    </footer>
+
+</body>
+</html>
