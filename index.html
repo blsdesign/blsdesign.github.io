@@ -64,8 +64,7 @@
             height: 100vh;
             z-index: -1;
             pointer-events: none;
-            mix-blend-mode: luminosity;
-            opacity: 0.18;
+            opacity: 0.45;
             background-image: url('assets/images/portrait.jpg');
             background-size: cover;
             background-position: center right;
@@ -410,20 +409,48 @@
         }
 
         .case-hyperlink {
-            font-family: var(--font-body);
-            color: var(--text-primary);
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            margin-top: 0.25rem;
-            transition: color 0.2s ease;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+            padding: 0.55rem 1.2rem;
+            border: 1px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            background: transparent;
+            align-self: flex-start;
+        }
+
+        .case-hyperlink::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: var(--accent-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 0;
+        }
+
+        .case-hyperlink span {
+            position: relative;
+            z-index: 1;
         }
 
         .case-hyperlink:hover {
-            color: var(--accent-gold);
+            color: var(--bg-base);
+        }
+
+        .case-hyperlink:hover::before {
+            transform: scaleX(1);
         }
 
         /* High-Drama Compressed Philosophy Layout Workspace */
@@ -678,7 +705,7 @@
                             <p class="case-blurb-text">
                                 A vibrant digital ecosystem crafted for a grassroots civic non-profit. This multi-layered platform features an integrated 15-category public resource directory and real-time community reporting forms, streamlining complex civic engagement into a clear, high-access interface built to organize and support everyday neighborhood issues.
                             </p>
-                            <a href="https://everydayadvocates.org/" target="_blank" class="case-hyperlink">Explore the Project →</a>
+                            <a href="https://everydayadvocates.org/" target="_blank" class="case-hyperlink"><span>Explore the Project →</span></a>
                         </div>
                     </div>
 
@@ -706,7 +733,7 @@
                             <p class="case-blurb-text">
                                 An atmospheric, premium editorial showcase tailored for a multi-faceted vocal recording artist, arranger, and musical theater director. This live digital portfolio structure balances an elegant fine-arts aesthetic with clean, performance-driven multi-genre professional storytelling.
                             </p>
-                            <a href="https://zoemccray.com/" target="_blank" class="case-hyperlink">Explore the Project →</a>
+                            <a href="https://zoemccray.com/" target="_blank" class="case-hyperlink"><span>Explore the Project →</span></a>
                         </div>
                     </div>
                 </div>
