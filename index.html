@@ -55,22 +55,23 @@
             overflow-x: hidden;
         }
 
-        /* Ambient Background Portrait Asset (Non-Amateur Framework) */
+        /* Abstract Blue Ridge Mountain Background */
         .ambient-portrait-bg {
             position: fixed;
             top: 0;
-            right: 0;
-            width: 50vw;
+            left: 0;
+            width: 100vw;
             height: 100vh;
-            z-index: -1;
+            z-index: -2;
             pointer-events: none;
-            opacity: 0.45;
-            background-image: url('assets/images/portrait.jpg');
-            background-size: cover;
-            background-position: center right;
         }
 
-        /* Subtle Layer Gradient Overlay to let the Image Shine and Text Pop */
+        .ambient-portrait-bg svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Vignette Overlay */
         .ambient-gradient-overlay {
             position: fixed;
             top: 0;
@@ -79,7 +80,7 @@
             height: 100vh;
             z-index: -1;
             pointer-events: none;
-            background: linear-gradient(to right, var(--bg-base) 45%, rgba(7, 10, 14, 0.85) 75%, var(--bg-base) 100%);
+            background: radial-gradient(ellipse at 50% 40%, transparent 30%, rgba(7,10,14,0.7) 100%);
         }
 
         /* Scannable Structural Utilities */
@@ -273,6 +274,36 @@
             border: 1px solid var(--border-color);
             padding: 0.25rem 0.6rem;
             color: var(--text-secondary);
+        }
+
+        /* Portrait + Quote Card in Hero */
+        .hero-portrait-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .hero-portrait-img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: grayscale(20%) contrast(1.05);
+        }
+
+        .hero-portrait-quote-band {
+            background: rgba(13, 19, 26, 0.75);
+            border-left: 2px solid var(--accent-gold);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.1rem 1.2rem 1rem;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-portrait-quote-band .editorial-script-quote {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
         }
 
         /* Selected Works Stagger Grid Elements */
@@ -631,8 +662,88 @@
 </head>
 <body>
 
-    <!-- Ambient Image & Color Gradient Layers -->
-    <div class="ambient-portrait-bg"></div>
+    <!-- Abstract Blue Ridge Mountain Background -->
+    <div class="ambient-portrait-bg">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#070a0e"/>
+                    <stop offset="100%" stop-color="#0b1118"/>
+                </linearGradient>
+                <!-- Ridge 1 — farthest, most muted -->
+                <linearGradient id="ridge1Grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0e1e2e" stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color="#070a0e" stop-opacity="0.9"/>
+                </linearGradient>
+                <!-- Ridge 2 -->
+                <linearGradient id="ridge2Grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0c1b2a" stop-opacity="0.65"/>
+                    <stop offset="100%" stop-color="#070a0e" stop-opacity="1"/>
+                </linearGradient>
+                <!-- Ridge 3 -->
+                <linearGradient id="ridge3Grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0a1622" stop-opacity="0.75"/>
+                    <stop offset="100%" stop-color="#070a0e" stop-opacity="1"/>
+                </linearGradient>
+                <!-- Ridge 4 — closest, darkest -->
+                <linearGradient id="ridge4Grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#09131d" stop-opacity="0.85"/>
+                    <stop offset="100%" stop-color="#070a0e" stop-opacity="1"/>
+                </linearGradient>
+                <filter id="ridgeBlur1"><feGaussianBlur stdDeviation="3"/></filter>
+                <filter id="ridgeBlur2"><feGaussianBlur stdDeviation="2"/></filter>
+                <filter id="ridgeBlur3"><feGaussianBlur stdDeviation="1"/></filter>
+            </defs>
+
+            <!-- Sky base -->
+            <rect width="1440" height="900" fill="url(#skyGrad)"/>
+
+            <!-- Ridge 1 — farthest horizon line, very soft -->
+            <path filter="url(#ridgeBlur1)" fill="url(#ridge1Grad)"
+                d="M0,580
+                   C60,560 120,545 200,538
+                   C280,531 340,548 420,535
+                   C500,522 560,505 640,510
+                   C720,515 790,530 870,518
+                   C950,506 1010,490 1100,498
+                   C1190,506 1260,522 1340,515
+                   C1380,511 1420,505 1440,502
+                   L1440,900 L0,900 Z"/>
+
+            <!-- Ridge 2 -->
+            <path filter="url(#ridgeBlur2)" fill="url(#ridge2Grad)"
+                d="M0,620
+                   C80,598 150,582 240,575
+                   C330,568 390,588 480,572
+                   C570,556 630,538 720,544
+                   C810,550 880,568 960,554
+                   C1040,540 1110,522 1200,530
+                   C1290,538 1360,555 1440,548
+                   L1440,900 L0,900 Z"/>
+
+            <!-- Ridge 3 -->
+            <path filter="url(#ridgeBlur3)" fill="url(#ridge3Grad)"
+                d="M0,665
+                   C90,642 170,624 270,618
+                   C370,612 430,634 520,618
+                   C610,602 680,582 760,590
+                   C840,598 920,618 1000,604
+                   C1080,590 1150,570 1240,578
+                   C1330,586 1390,604 1440,598
+                   L1440,900 L0,900 Z"/>
+
+            <!-- Ridge 4 — closest, most defined -->
+            <path fill="url(#ridge4Grad)"
+                d="M0,720
+                   C100,695 190,676 300,670
+                   C410,664 470,688 570,672
+                   C670,656 740,634 830,644
+                   C920,654 1000,676 1090,660
+                   C1180,644 1250,622 1350,632
+                   C1400,637 1430,645 1440,648
+                   L1440,900 L0,900 Z"/>
+        </svg>
+    </div>
     <div class="ambient-gradient-overlay"></div>
 
     <!-- Tasteful Top Identity Flag Badge -->
@@ -670,12 +781,15 @@
                 </div>
 
                 <div class="hero-right-content">
-                    <!-- Integrated Theatrical Branding Block -->
-                    <div class="hero-sidebar-quote">
-                        <p class="editorial-script-quote">“Designed by an educator. Composed like a performance.”</p>
-                        <div class="luxury-badge-container">
-                            <span class="luxury-tag-label">Accessibility-Conscious</span>
-                            <span class="luxury-tag-label">Mission-Driven</span>
+                    <!-- Portrait paired with editorial quote -->
+                    <div class="hero-portrait-card">
+                        <img src="assets/images/portrait.jpg" alt="Benjamin Lowell Swanson" class="hero-portrait-img"/>
+                        <div class="hero-portrait-quote-band">
+                            <p class="editorial-script-quote">“Designed by an educator. Composed like a performance.”</p>
+                            <div class="luxury-badge-container">
+                                <span class="luxury-tag-label">Accessibility-Conscious</span>
+                                <span class="luxury-tag-label">Mission-Driven</span>
+                            </div>
                         </div>
                     </div>
                 </div>
