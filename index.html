@@ -66,7 +66,7 @@
             pointer-events: none;
             mix-blend-mode: luminosity;
             opacity: 0.18;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><rect width="1080" height="1350" fill="%23141c27"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="28" fill="%23a0aec0">PORTRAIT PLACEHOLDER (1080px x 1350px)</text></svg>');
+            background-image: url('assets/images/portrait.jpg');
             background-size: cover;
             background-position: center right;
         }
@@ -338,10 +338,39 @@
             background-position: center;
         }
 
-        .slide-layer:nth-child(1) { animation-delay: 0s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%23141c27"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Everyday Advocates - Directory View</text></svg>'); }
-        .slide-layer:nth-child(2) { animation-delay: 3s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%230d131a"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Everyday Advocates - 15-Cat Resource Module</text></svg>'); }
-        .slide-layer:nth-child(3) { animation-delay: 6s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%231a2432"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Everyday Advocates - Live Issue Submission Form</text></svg>'); }
-        .slide-layer:nth-child(4) { animation-delay: 9s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%23070a0e"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Everyday Advocates - Civic Tracking System</text></svg>'); }
+        .slide-layer:nth-child(1) { animation-delay: 0s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('assets/images/ea-1.png'); }
+        .slide-layer:nth-child(2) { animation-delay: 3s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('assets/images/ea-2.png'); }
+        .slide-layer:nth-child(3) { animation-delay: 6s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('assets/images/ea-3.png'); }
+        .slide-layer:nth-child(4) { animation-delay: 9s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('assets/images/ea-4.png'); }
+
+        /* Zoe Slideshow */
+        .zoe-slideshow-display-frame {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background-color: var(--bg-surface-elevated);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoe-slide-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: fastSlideLoop 9s infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .zoe-slide-layer:nth-child(1) { animation-delay: 0s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('assets/images/zoe.png'); }
+        .zoe-slide-layer:nth-child(2) { animation-delay: 3s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('assets/images/zoe-2.png'); }
+        .zoe-slide-layer:nth-child(3) { animation-delay: 6s; background-image: linear-gradient(rgba(13,19,26,0.3), rgba(13,19,26,0.3)), url('assets/images/zoe-3.png'); }
 
         @keyframes fastSlideLoop {
             0%, 20% { opacity: 1; }
@@ -655,7 +684,7 @@
 
                     <!-- Case Study 2: Colonial Beach Baptist Church -->
                     <div class="case-study-node">
-                        <div class="static-display-frame" style="background-image: linear-gradient(rgba(13,19,26,0.4), rgba(13,19,26,0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%230d131a"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Colonial Beach Baptist - Clean Structural Redesign</text></svg>');">
+                        <div class="static-display-frame" style="background-image: linear-gradient(rgba(13,19,26,0.4), rgba(13,19,26,0.4)), url('assets/images/cbbc.png');">
                         </div>
                         <div class="case-content-panel">
                             <h3 class="case-title">Colonial Beach Baptist</h3>
@@ -667,7 +696,10 @@
 
                     <!-- Case Study 3: Zoe McCray -->
                     <div class="case-study-node">
-                        <div class="static-display-frame" style="background-image: linear-gradient(rgba(13,19,26,0.4), rgba(13,19,26,0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%23141c27"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="%23ffffff">Zoe McCray - Editorial Portfolio</text></svg>');">
+                        <div class="zoe-slideshow-display-frame">
+                            <div class="zoe-slide-layer"></div>
+                            <div class="zoe-slide-layer"></div>
+                            <div class="zoe-slide-layer"></div>
                         </div>
                         <div class="case-content-panel">
                             <h3 class="case-title">Zoe McCray</h3>
