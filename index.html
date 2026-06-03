@@ -666,6 +666,273 @@
                 text-align: center;
             }
         }
+        /* Accessible by Default badge highlight */
+        .accessible-default-badge {
+            color: var(--accent-gold) !important;
+            border-color: rgba(212, 175, 55, 0.4) !important;
+            background-color: rgba(212, 175, 55, 0.08) !important;
+        }
+
+        /* ── Services Grid ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-gold);
+            background-color: var(--bg-surface-elevated);
+        }
+
+        .service-card-faith {
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .service-card-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .service-audience-tag {
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+        }
+
+        .service-package-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            line-height: 1.0;
+        }
+
+        .service-strategic-headline {
+            font-family: var(--font-editorial);
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.35;
+        }
+
+        .service-body {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .service-outcomes {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .service-outcomes li {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .service-outcomes li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 0.6rem;
+            top: 0.1em;
+        }
+
+        /* ── Trust Test Section ── */
+        .trust-test-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 1.5rem;
+        }
+
+        .trust-test-intro {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        /* POUR Framework */
+        .pour-framework {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .pour-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .pour-letter {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+            min-width: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .pour-word {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .pour-desc {
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            line-height: 1.45;
+        }
+
+        /* Checklist Card */
+        .checklist-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem;
+            position: sticky;
+            top: 5rem;
+        }
+
+        .checklist-card-header {
+            margin-bottom: 1.25rem;
+        }
+
+        .checklist-eyebrow {
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .checklist-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.4rem;
+        }
+
+        .checklist-subtext {
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            line-height: 1.4;
+        }
+
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            cursor: pointer;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            transition: color 0.15s ease;
+        }
+
+        .checklist-item:hover {
+            color: var(--text-primary);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 0.1em;
+            accent-color: var(--accent-gold);
+            flex-shrink: 0;
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+        }
+
+        .checklist-item input:checked + span {
+            color: var(--text-primary);
+            text-decoration: line-through;
+            text-decoration-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .checklist-result {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .checklist-score-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--bg-surface-elevated);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist-score-fill {
+            height: 100%;
+            background: var(--accent-gold);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .checklist-score-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 968px) {
+            .services-grid,
+            .trust-test-layout {
+                grid-template-columns: 1fr;
+            }
+            .checklist-card {
+                position: static;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -765,6 +1032,8 @@
             <a href="#" class="brand-name">Benjamin Lowell Swanson</a>
             <nav class="main-nav">
                 <a href="#work" class="nav-link">Work</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#trust-test" class="nav-link">Trust Test</a>
                 <a href="#approach" class="nav-link">Approach</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
@@ -778,7 +1047,7 @@
                 <div class="hero-left-content">
                     <span class="section-label">Educational Web Design & Digital Strategy</span>
                     <h1 class="hero-main-title">Websites with rhythm, clarity, and soul.</h1>
-                    <p class="hero-sub-headline">Where digital structure meets human storytelling.</p>
+                    <p class="hero-sub-headline">"Good web design is simply good teaching scaled to the digital world."</p>
                     <p class="hero-body-text">
                         I design thoughtful, highly-accessible digital experiences for learning communities, nonprofits, faith communities, and creatives. Shaped by a professional background in PreK-12 education, music performance, and civic leadership, I build clean, intuitive websites that help mission-driven organizations and artists speak clearly to the communities they serve.
                     </p>
@@ -795,8 +1064,9 @@
                         <div class="hero-portrait-quote-band">
                             <p class="editorial-script-quote">“Designed by an educator. Composed like a performance.”</p>
                             <div class="luxury-badge-container">
-                                <span class="luxury-tag-label">Accessibility-Conscious</span>
-                                <span class="luxury-tag-label">Mission-Driven</span>
+                                <span class="luxury-tag-label accessible-default-badge">✦ Accessible by Default</span>
+                                <span class="luxury-tag-label">Mission-Centered Design</span>
+                                <span class="luxury-tag-label">POUR-Grounded Practice</span>
                             </div>
                         </div>
                     </div>
@@ -856,6 +1126,159 @@
                                 An atmospheric, premium editorial showcase tailored for a multi-faceted vocal recording artist, arranger, and musical theater director. This live digital portfolio structure balances an elegant fine-arts aesthetic with clean, performance-driven multi-genre professional storytelling.
                             </p>
                             <a href="https://zoemccray.com/" target="_blank" class="case-hyperlink"><span>Explore the Project →</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Four-Tiered Service Grid -->
+        <section id="services">
+            <div class="container">
+                <span class="section-label">Service Packages</span>
+                <h2 class="section-title">Your stage. Designed for it.</h2>
+                <p class="section-intro-text">
+                    Every environment I build is <strong style="color: var(--text-primary);">Accessible by Default</strong> — not bolted on after the fact, not available upon request. Inclusion is baked into the architecture from day one, because the communities you serve deserve nothing less.
+                </p>
+
+                <div class="services-grid">
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <span class="service-audience-tag">Schools &amp; Learning Communities</span>
+                            <h3 class="service-package-name">The Visionary Schoolfront</h3>
+                        </div>
+                        <p class="service-strategic-headline">When families can't find what they need, they choose a different school.</p>
+                        <p class="service-body">Most school websites were built to exist — not to work. They're hard to navigate on a phone, full of outdated information, and invisible to families searching Google. I design school websites that are easy for your office staff to update, easy for families to navigate in any language on any device, and built to meet federal accessibility standards (WCAG 2.1 AA) so every prospective family — including those with disabilities — can find what they need and feel confident reaching out.</p>
+                        <ul class="service-outcomes">
+                            <li>Mobile-first design so parents can navigate from their phones</li>
+                            <li>Clear enrollment and contact flows that reduce front-office phone traffic</li>
+                            <li>Meets federal accessibility guidelines so all families are included</li>
+                            <li>Accessible by Default — not a feature you have to ask for</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <span class="service-audience-tag">Arts Organizations &amp; Performing Companies</span>
+                            <h3 class="service-package-name">The Digital Encore Suite</h3>
+                        </div>
+                        <p class="service-strategic-headline">Your next audience member is searching for you right now.</p>
+                        <p class="service-body">Arts organizations live and die by visibility — and a website that looks beautiful but can't be found, doesn't load on a phone, or can't be used by someone with a hearing or vision impairment is leaving audiences, donors, and volunteers behind. Drawing on direct experience in musical theatre production, choral direction, and vocal performance, I build performing arts websites that showcase your work beautifully, reach every audience member, and make it simple for people to buy tickets, donate, or get involved. All video content is captioned. All imagery is described. Every performance gets the audience it deserves.</p>
+                        <ul class="service-outcomes">
+                            <li>Video galleries with captions so deaf and hard-of-hearing audiences are included</li>
+                            <li>Ticket, donation, and volunteer signup flows that actually convert</li>
+                            <li>Performance archive and press materials for grant applications</li>
+                            <li>Accessible by Default — every audience member, every time</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <span class="service-audience-tag">Independent Artists &amp; Performers</span>
+                            <h3 class="service-package-name">The Leading Role Portfolio</h3>
+                        </div>
+                        <p class="service-strategic-headline">Your body of work deserves a home that works as hard as you do.</p>
+                        <p class="service-body">Whether you're a vocalist pursuing auditions, a teaching artist growing a studio, or a multi-hyphenate performer building a professional brand, your website is your calling card — and it needs to be working when you're not. Built from direct experience, this portfolio package gives you a site that showcases your artistry, makes it easy for directors and clients to reach you, and represents you at the level you're performing at. No templates that look like everyone else's. No jargon, no complexity — just a clean, compelling presence that opens doors.</p>
+                        <ul class="service-outcomes">
+                            <li>Audition-ready bio, headshots, and performance media</li>
+                            <li>Private lesson inquiry and booking flows</li>
+                            <li>Repertoire lists and press materials, organized and accessible</li>
+                            <li>Accessible by Default — every casting director can use it</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card service-card-faith">
+                        <div class="service-card-header">
+                            <span class="service-audience-tag">Faith Communities &amp; Nonprofits</span>
+                            <h3 class="service-package-name">The Digital Sanctuary Solution</h3>
+                        </div>
+                        <p class="service-strategic-headline">Someone searching for a welcoming community is going to find you first on Google.</p>
+                        <p class="service-body">For LGBTQIA+ affirming congregations, progressive faith communities, and values-driven nonprofits, your website is often the first moment of contact for someone who has been turned away elsewhere. That moment matters. I build warm, welcoming digital spaces that communicate care and inclusion before anyone ever walks through your door — with resource directories, event calendars, giving flows, and design that signals belonging to the people who need it most. Accessibility here isn't just a technical standard. It's an expression of your values.</p>
+                        <ul class="service-outcomes">
+                            <li>Affirming, welcoming design language and copywriting</li>
+                            <li>Resource directories, event calendars, and online giving</li>
+                            <li>Built so people with disabilities can fully participate</li>
+                            <li>Accessible by Default — a seat at the table for every visitor</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Test Lead Magnet Section -->
+        <section id="trust-test">
+            <div class="container">
+                <span class="section-label">ADA Compliance &amp; Accessibility</span>
+                <div class="trust-test-layout">
+                    <div class="trust-test-left">
+                        <h2 class="section-title">Does Your School Website Pass the Trust Test?</h2>
+                        <p class="trust-test-intro">
+                            Most school websites weren't designed with accessibility in mind — and that means real families, students, and community members are being quietly left out. A parent using a screen reader. A prospective student navigating with a keyboard instead of a mouse. A family whose primary language isn't English, trying to find the enrollment form on their phone. The question isn't whether your website works — it's whether it works <strong style="color: var(--text-primary);">for everyone</strong>.
+                        </p>
+                        <p class="trust-test-intro" style="margin-top: 0.75rem;">
+                            I build websites that are <strong style="color: var(--text-primary);">Accessible by Default</strong> — meaning accessibility isn't an add-on or an afterthought. It's the foundation. The standard I build to is WCAG 2.1 AA (Web Content Accessibility Guidelines), organized around four principles known as POUR:
+                        </p>
+
+                        <div class="pour-framework">
+                            <div class="pour-item">
+                                <span class="pour-letter">P</span>
+                                <div>
+                                    <span class="pour-word">Perceivable</span>
+                                    <p class="pour-desc">All information and UI components must be presentable in ways users can perceive — including those using screen readers, or who have low vision or color blindness. If a family can't see your enrollment button, they can't enroll.</p>
+                                </div>
+                            </div>
+                            <div class="pour-item">
+                                <span class="pour-letter">O</span>
+                                <div>
+                                    <span class="pour-word">Operable</span>
+                                    <p class="pour-desc">All navigation and functionality must be operable via keyboard, switch device, or voice control — not just a mouse. A prospective student with a motor disability should be able to complete your contact form without friction.</p>
+                                </div>
+                            </div>
+                            <div class="pour-item">
+                                <span class="pour-letter">U</span>
+                                <div>
+                                    <span class="pour-word">Understandable</span>
+                                    <p class="pour-desc">Content and operation must be understandable. Plain language, clear error messages, consistent navigation patterns. If a parent whose first language isn't English can't understand your school calendar, you've already lost them.</p>
+                                </div>
+                            </div>
+                            <div class="pour-item">
+                                <span class="pour-letter">R</span>
+                                <div>
+                                    <span class="pour-word">Robust</span>
+                                    <p class="pour-desc">Content must be robust enough to be reliably interpreted by assistive technologies — both current and future. A site built on brittle shortcuts will fail screen readers, voice assistants, and the next generation of access tools.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trust-test-right">
+                        <div class="checklist-card">
+                            <div class="checklist-card-header">
+                                <span class="checklist-eyebrow">Quick Self-Audit</span>
+                                <h3 class="checklist-title">The Trust Test Checklist</h3>
+                                <p class="checklist-subtext">Check your current site honestly. Every "No" is a barrier — legal, reputational, and human.</p>
+                            </div>
+                            <div class="checklist-items" id="trustChecklist">
+                                <label class="checklist-item"><input type="checkbox"> <span>A parent can find your enrollment or registration information in under 30 seconds — on their phone</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>Your school's name, address, phone number, and office hours are easy to find without scrolling</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>Every photo on the site has a written description (so families using screen readers know what's shown)</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>The text is easy to read — dark enough against the background, large enough to see clearly</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>Any videos on the site include captions for students or families who are deaf or hard of hearing</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>Contact forms work correctly — and tell you clearly what went wrong if something doesn't submit</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>The site works for someone who can't use a mouse — including students with physical disabilities</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>The navigation menu is consistent and predictable — families never have to hunt for basic information</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>The site displays correctly in Spanish (or the primary languages of your school community)</span></label>
+                                <label class="checklist-item"><input type="checkbox"> <span>The site loads quickly — even on an older phone with a slow connection</span></label>
+                            </div>
+                            <div class="checklist-result" id="checklistResult">
+                                <div class="checklist-score-bar">
+                                    <div class="checklist-score-fill" id="scoreFill" style="width: 0%"></div>
+                                </div>
+                                <p class="checklist-score-label" id="scoreLabel">Check items above to see your score</p>
+                            </div>
+                            <a href="mailto:benlswanson3@gmail.com" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1rem; display: block;">Get a Free Accessibility Review →</a>
                         </div>
                     </div>
                 </div>
@@ -931,6 +1354,38 @@
             <div>Educational Web Design & Digital Strategy</div>
         </div>
     </footer>
+    <script>
+        // Live Trust Test Checklist Scorer
+        const checkboxes = document.querySelectorAll('#trustChecklist input[type="checkbox"]');
+        const scoreFill = document.getElementById('scoreFill');
+        const scoreLabel = document.getElementById('scoreLabel');
+        const total = checkboxes.length;
+
+        function updateScore() {
+            const checked = [...checkboxes].filter(cb => cb.checked).length;
+            const pct = Math.round((checked / total) * 100);
+            scoreFill.style.width = pct + '%';
+
+            if (checked === 0) {
+                scoreLabel.textContent = 'Check items above to see your score';
+                scoreFill.style.background = 'var(--accent-gold)';
+            } else if (pct < 50) {
+                scoreLabel.textContent = `${pct}% — High legal & trust exposure. Let's talk.`;
+                scoreFill.style.background = '#e05555';
+            } else if (pct < 80) {
+                scoreLabel.textContent = `${pct}% — Getting there, but gaps remain. A review would help.`;
+                scoreFill.style.background = '#d4af37';
+            } else if (pct < 100) {
+                scoreLabel.textContent = `${pct}% — Strong foundation. Let's close those final gaps.`;
+                scoreFill.style.background = '#5ba85b';
+            } else {
+                scoreLabel.textContent = `100% — Excellent! Your site is built for everyone. 🎉`;
+                scoreFill.style.background = 'var(--accent-gold)';
+            }
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateScore));
+    </script>
 
 </body>
 </html>
