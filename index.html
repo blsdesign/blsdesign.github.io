@@ -120,6 +120,18 @@
             overflow-x: hidden;
         }
 
+        .sr-only {
+            position: absolute !important;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* Abstract Blue Ridge Mountain Background */
         .ambient-portrait-bg {
             position: fixed;
@@ -148,6 +160,42 @@
             background: radial-gradient(ellipse at 50% 40%, transparent 30%, rgba(7,10,14,0.7) 100%);
         }
 
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            
+            z-index: 1000;
+            background: var(--text-primary);
+            color: var(--bg-base);
+   
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            text-decoration: none;
+
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        label:focus-visible {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+
+        .btn:focus-visible,
+        .case-hyperlink:focus-visible,
+        .nav-link:focus-visible {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 4px;
+}
+        
+        
         /* Scannable Structural Utilities */
         .container {
             max-width: var(--container-max);
@@ -1085,9 +1133,16 @@
 </head>
 <body>
 
+    <a href="#main-content" class="skip-link">
+    Skip to Main Content
+    </a>
+    
     <!-- Abstract Blue Ridge Mountain Background -->
-    <div class="ambient-portrait-bg">
-        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <div class="ambient-portrait-bg" aria-hidden="true">
+        <svg
+    viewBox="0 0 1440 900"
+    aria-hidden="true"
+    focusable="false"> preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#070a0e"/>
@@ -1178,7 +1233,7 @@
     <header class="site-header">
         <div class="container header-wrap">
             <a href="#" class="brand-name">Benjamin Lowell Swanson</a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Primary">
                 <a href="#work" class="nav-link">Work</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#trust-test" class="nav-link">Trust Test</a>
@@ -1188,7 +1243,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Compressed Hero Section -->
         <section id="hero">
             <div class="container hero-layout">
@@ -1208,7 +1263,7 @@
                 <div class="hero-right-content">
                     <!-- Portrait paired with editorial quote -->
                     <div class="hero-portrait-card">
-                        <img src="assets/images/portrait.jpg" alt="Benjamin Lowell Swanson" class="hero-portrait-img"/>
+                        <img src="assets/images/portrait.jpg" alt="Portrait of Benjamin Lowell Swanson, educator, web designer, and accessibility advocate" class="hero-portrait-img"/>
                         <div class="hero-portrait-quote-band">
                             <p class="editorial-script-quote">“Designed by an educator. Composed like a performance.”</p>
                             <div class="luxury-badge-container">
@@ -1234,24 +1289,47 @@
                 <div class="case-studies-stack">
                     <!-- Case Study 1: Everyday Advocates -->
                     <div class="case-study-node">
-                        <div class="slideshow-display-frame">
-                            <div class="slide-layer"></div>
-                            <div class="slide-layer"></div>
-                            <div class="slide-layer"></div>
-                            <div class="slide-layer"></div>
+                       <div
+                            class="slideshow-display-frame"
+                            role="img"
+                            aria-label="Slideshow of the Everyday Advocates website featuring a community resource directory, civic engagement tools, neighborhood issue reporting forms, and volunteer advocacy resources."
+                        >
+                            <span class="sr-only">
+                                Everyday Advocates website slideshow featuring community resources,
+                                civic engagement tools, reporting forms, and volunteer resources.
+                            </span>
+
+                            <div class="slide-layer" aria-hidden="true"></div>
+                            <div class="slide-layer" aria-hidden="true"></div>
+                            <div class="slide-layer" aria-hidden="true"></div>
+                            <div class="slide-layer" aria-hidden="true"></div>
                         </div>
                         <div class="case-content-panel">
                             <h3 class="case-title">Everyday Advocates</h3>
                             <p class="case-blurb-text">
                                 A vibrant digital ecosystem crafted for a grassroots civic nonprofit. This multi-layered platform features an integrated 15-category public resource directory and real-time community reporting forms, streamlining complex civic engagement into a clear, high-access interface built to organize and support everyday neighborhood issues.
                             </p>
-                            <a href="https://everydayadvocates.org/" target="_blank" class="case-hyperlink"><span>Explore the Project →</span></a>
+                            <a
+    href="https://everydayadvocates.org/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="case-hyperlink"
+    aria-label="Visit the Everyday Advocates website (opens in a new tab)"><span>Explore the Project ↗</span></a>
                         </div>
                     </div>
 
                     <!-- Case Study 2: Colonial Beach Baptist Church -->
                     <div class="case-study-node">
-                        <div class="static-display-frame" style="background-image: url('assets/images/cbbc.png');">
+                        <div
+                            class="static-display-frame"
+                            style="background-image: url('assets/images/cbbc.png');"
+                            role="img"
+                            aria-label="Homepage of the Colonial Beach Baptist Church website featuring worship information, church ministries, and community outreach resources."
+                        >
+                            <span class="sr-only">
+                                Colonial Beach Baptist Church website homepage featuring worship information,
+                                ministries, and community outreach resources.
+                            </span>
                         </div>
                         <div class="case-content-panel">
                             <h3 class="case-title">Colonial Beach Baptist</h3>
@@ -1263,17 +1341,28 @@
 
                     <!-- Case Study 3: Zoe McCray -->
                     <div class="case-study-node">
-                        <div class="zoe-slideshow-display-frame">
-                            <div class="zoe-slide-layer"></div>
-                            <div class="zoe-slide-layer"></div>
-                            <div class="zoe-slide-layer"></div>
+                        <div
+                            class="zoe-slideshow-display-frame"
+                            role="img"
+                            aria-label="Slideshow of the Zoe McCray professional portfolio website featuring performance media, biography content, and professional artistic work."
+                        >
+                            <span class="sr-only">
+                                Zoe McCray portfolio website slideshow featuring performance media,
+                                artist biography content, and professional credits.
+                            </span>
+
+                            <div class="zoe-slide-layer" aria-hidden="true"></div>
+                            <div class="zoe-slide-layer" aria-hidden="true"></div>
+                            <div class="zoe-slide-layer" aria-hidden="true"></div>
                         </div>
                         <div class="case-content-panel">
                             <h3 class="case-title">Zoe McCray</h3>
                             <p class="case-blurb-text">
                                 An atmospheric, premium editorial showcase tailored for a multi-faceted vocal recording artist, arranger, and musical theater director. This live digital portfolio structure balances an elegant fine-arts aesthetic with clean, performance-driven multi-genre professional storytelling.
                             </p>
-                            <a href="https://zoemccray.com/" target="_blank" class="case-hyperlink"><span>Explore the Project →</span></a>
+                            <a href="https://zoemccray.com/"
+   target="_blank"
+   class="case-hyperlink"><span>Explore the Project ↗</span></a>
                         </div>
                     </div>
                 </div>
@@ -1527,7 +1616,7 @@
     </main>
 
     <!-- Clean Structural Identity Footer -->
-    <footer class="site-footer">
+    <footer class="site-footer" aria-label="Site Footer">
         <div class="container footer-wrap">
             <div>&copy; 2026 Benjamin Lowell Swanson</div>
             <div>Educational Web Design & Digital Strategy</div>
