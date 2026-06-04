@@ -167,61 +167,93 @@
 
         #services::before {
             content: "";
-
             position: absolute;
             inset: 0;
-
             pointer-events: none;
             z-index: 0;
 
-            opacity: 0.06;
+            background-image:
+                /* major grid lines — 80px module, like a drafting sheet */
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(180, 200, 220, 0.09) 0px,
+                    rgba(180, 200, 220, 0.09) 1px,
+                    transparent 1px,
+                    transparent 80px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(180, 200, 220, 0.09) 0px,
+                    rgba(180, 200, 220, 0.09) 1px,
+                    transparent 1px,
+                    transparent 80px
+                ),
+                /* minor subdivision lines — 16px module (5 per major cell) */
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(180, 200, 220, 0.04) 0px,
+                    rgba(180, 200, 220, 0.04) 1px,
+                    transparent 1px,
+                    transparent 16px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(180, 200, 220, 0.04) 0px,
+                    rgba(180, 200, 220, 0.04) 1px,
+                    transparent 1px,
+                    transparent 16px
+                );
+
+            mix-blend-mode: screen;
+        }
+
+        /* Dimension tick marks along top edge — theatre drafting flavour */
+        #services::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
 
             background-image:
+                /* top border rule */
+                linear-gradient(
+                    180deg,
+                    rgba(180, 200, 220, 0.12) 0px,
+                    rgba(180, 200, 220, 0.12) 1px,
+                    transparent 1px,
+                    transparent 100%
+                ),
+                /* bottom border rule */
+                linear-gradient(
+                    0deg,
+                    rgba(180, 200, 220, 0.12) 0px,
+                    rgba(180, 200, 220, 0.12) 1px,
+                    transparent 1px,
+                    transparent 100%
+                ),
+                /* dimension tick marks every 80px along top */
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    transparent 79px,
+                    rgba(180, 200, 220, 0.18) 79px,
+                    rgba(180, 200, 220, 0.18) 80px
+                );
+            background-size: 100% 100%, 100% 100%, 80px 10px;
+            background-repeat: no-repeat, no-repeat, repeat-x;
+            background-position: top, bottom, top;
 
-          /* vertical grid */
-            repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,0.18) 0px,
-            rgba(255,255,255,0.18) 1px,
-            transparent 1px,
-            transparent 80px
-        ),
-
-        /* horizontal grid */
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.18) 0px,
-            rgba(255,255,255,0.18) 1px,
-            transparent 1px,
-            transparent 80px
-        );
-
-    mix-blend-mode: screen;
-}
+            mix-blend-mode: screen;
+        }
 
         #services .container {
-    position: relative;
-    z-index: 1;
-}
-
-        #services::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent 40%,
-            rgba(212,175,55,0.04) 50%,
-            transparent 60%
-        );
-
-    z-index: 0;
-}
+            position: relative;
+            z-index: 1;
+        }
         
         .skip-link {
             position: absolute;
@@ -886,11 +918,29 @@
             background-color: rgba(212, 175, 55, 0.08) !important;
         }
 
+        .services-sketch-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            mix-blend-mode: screen;
+            opacity: 0.9;
+        }
+
         /* ── Services intro layout with decorative icon ── */
         .services-intro-layout {
             width: 100%;
             max-width: 1200px;
             margin: 0 0 3rem 0;
+            text-align: left;
+        }
+
+        #services .section-title,
+        #services .section-label {
+            text-align: left;
+            display: block;
         }
 
         .services-intro-text-block {
@@ -1428,6 +1478,119 @@
 
         <!-- Four-Tiered Service Grid -->
         <section id="services">
+
+            <!-- Technical theatre drafting sketch overlay -->
+            <svg class="services-sketch-overlay" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+
+                <!-- ── PROSCENIUM ARCH — centre, lightly sketched ── -->
+                <!-- outer arch -->
+                <path d="M 340,820 L 340,340 Q 340,200 600,200 Q 860,200 860,340 L 860,820"
+                      fill="none" stroke="rgba(180,210,230,0.13)" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- inner arch / reveal line -->
+                <path d="M 380,820 L 380,360 Q 380,245 600,245 Q 820,245 820,360 L 820,820"
+                      fill="none" stroke="rgba(180,210,230,0.08)" stroke-width="1" stroke-linecap="round" stroke-dasharray="6 4"/>
+
+                <!-- ── PLASTER LINE — horizontal dashed rule across top of opening ── -->
+                <line x1="310" y1="340" x2="890" y2="340"
+                      stroke="rgba(180,210,230,0.14)" stroke-width="1" stroke-dasharray="8 5"/>
+                <!-- plaster line label tick -->
+                <line x1="310" y1="330" x2="310" y2="350" stroke="rgba(180,210,230,0.18)" stroke-width="1"/>
+                <line x1="890" y1="330" x2="890" y2="350" stroke="rgba(180,210,230,0.18)" stroke-width="1"/>
+
+                <!-- ── CENTRE LINE — vertical, running full height ── -->
+                <line x1="600" y1="80" x2="600" y2="860"
+                      stroke="rgba(212,175,55,0.07)" stroke-width="1" stroke-dasharray="12 4 2 4"/>
+
+                <!-- ── STAGE FLOOR / APRON edge line ── -->
+                <line x1="240" y1="760" x2="960" y2="760"
+                      stroke="rgba(180,210,230,0.12)" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- apron curve -->
+                <path d="M 240,760 Q 600,800 960,760"
+                      fill="none" stroke="rgba(180,210,230,0.07)" stroke-width="1" stroke-dasharray="5 4"/>
+
+                <!-- ── TORMENTORS — vertical masking legs left & right ── -->
+                <line x1="420" y1="355" x2="420" y2="820"
+                      stroke="rgba(180,210,230,0.1)" stroke-width="1" stroke-linecap="round"/>
+                <line x1="780" y1="355" x2="780" y2="820"
+                      stroke="rgba(180,210,230,0.1)" stroke-width="1" stroke-linecap="round"/>
+
+                <!-- ── BORDERS — horizontal masking lines, two sets ── -->
+                <line x1="340" y1="420" x2="860" y2="420"
+                      stroke="rgba(180,210,230,0.09)" stroke-width="1" stroke-linecap="round"/>
+                <line x1="340" y1="500" x2="860" y2="500"
+                      stroke="rgba(180,210,230,0.06)" stroke-width="1" stroke-dasharray="4 3"/>
+
+                <!-- ── LIGHTING POSITION callouts — upper left and right ── -->
+                <!-- FOH position symbol: small circle on a line -->
+                <line x1="110" y1="155" x2="300" y2="340" stroke="rgba(180,210,230,0.09)" stroke-width="0.8" stroke-dasharray="4 3"/>
+                <circle cx="110" cy="150" r="6" fill="none" stroke="rgba(180,210,230,0.14)" stroke-width="1"/>
+                <circle cx="110" cy="150" r="2" fill="rgba(180,210,230,0.1)"/>
+
+                <line x1="1090" y1="155" x2="900" y2="340" stroke="rgba(180,210,230,0.09)" stroke-width="0.8" stroke-dasharray="4 3"/>
+                <circle cx="1090" cy="150" r="6" fill="none" stroke="rgba(180,210,230,0.14)" stroke-width="1"/>
+                <circle cx="1090" cy="150" r="2" fill="rgba(180,210,230,0.1)"/>
+
+                <!-- Ellipsoidal fixture sketch — FOH left -->
+                <g transform="translate(65,115) rotate(-30)" opacity="0.18">
+                    <rect x="-5" y="-14" width="10" height="22" rx="2" fill="none" stroke="rgba(180,210,230,1)" stroke-width="0.9"/>
+                    <line x1="0" y1="8" x2="-8" y2="20" stroke="rgba(180,210,230,1)" stroke-width="0.8"/>
+                    <line x1="0" y1="8" x2="8" y2="20" stroke="rgba(180,210,230,1)" stroke-width="0.8"/>
+                    <circle cx="0" cy="-3" r="4" fill="none" stroke="rgba(180,210,230,1)" stroke-width="0.8"/>
+                </g>
+
+                <!-- Ellipsoidal fixture sketch — FOH right -->
+                <g transform="translate(1135,115) rotate(30)" opacity="0.18">
+                    <rect x="-5" y="-14" width="10" height="22" rx="2" fill="none" stroke="rgba(180,210,230,1)" stroke-width="0.9"/>
+                    <line x1="0" y1="8" x2="-8" y2="20" stroke="rgba(180,210,230,1)" stroke-width="0.8"/>
+                    <line x1="0" y1="8" x2="8" y2="20" stroke="rgba(180,210,230,1)" stroke-width="0.8"/>
+                    <circle cx="0" cy="-3" r="4" fill="none" stroke="rgba(180,210,230,1)" stroke-width="0.8"/>
+                </g>
+
+                <!-- ── DIMENSION ANNOTATIONS — light pencil style ── -->
+                <!-- proscenium width callout -->
+                <line x1="340" y1="852" x2="860" y2="852" stroke="rgba(180,210,230,0.13)" stroke-width="0.8"/>
+                <line x1="340" y1="844" x2="340" y2="860" stroke="rgba(180,210,230,0.13)" stroke-width="0.8"/>
+                <line x1="860" y1="844" x2="860" y2="860" stroke="rgba(180,210,230,0.13)" stroke-width="0.8"/>
+                <!-- arrowheads -->
+                <polyline points="348,848 340,852 348,856" fill="none" stroke="rgba(180,210,230,0.13)" stroke-width="0.8"/>
+                <polyline points="852,848 860,852 852,856" fill="none" stroke="rgba(180,210,230,0.13)" stroke-width="0.8"/>
+
+                <!-- stage depth callout left side -->
+                <line x1="222" y1="340" x2="222" y2="760" stroke="rgba(180,210,230,0.11)" stroke-width="0.8"/>
+                <line x1="214" y1="340" x2="230" y2="340" stroke="rgba(180,210,230,0.11)" stroke-width="0.8"/>
+                <line x1="214" y1="760" x2="230" y2="760" stroke="rgba(180,210,230,0.11)" stroke-width="0.8"/>
+                <polyline points="218,348 222,340 226,348" fill="none" stroke="rgba(180,210,230,0.11)" stroke-width="0.8"/>
+                <polyline points="218,752 222,760 226,752" fill="none" stroke="rgba(180,210,230,0.11)" stroke-width="0.8"/>
+
+                <!-- ── SPOTLIGHT CONE — pencil sketch of a wash from above ── -->
+                <path d="M 600,200 L 460,600 L 740,600 Z"
+                      fill="rgba(212,175,55,0.025)" stroke="rgba(212,175,55,0.07)" stroke-width="0.8"
+                      stroke-dasharray="5 3" stroke-linejoin="round"/>
+                <!-- inner hot spot -->
+                <ellipse cx="600" cy="590" rx="60" ry="12"
+                         fill="rgba(212,175,55,0.03)" stroke="rgba(212,175,55,0.08)" stroke-width="0.7"/>
+
+                <!-- ── SCRIBBLED ANNOTATION LINES — loose freehand feel ── -->
+                <!-- rough arrow pointing to centre line, bottom left -->
+                <path d="M 160,680 Q 180,665 210,670 Q 235,672 250,660"
+                      fill="none" stroke="rgba(180,210,230,0.1)" stroke-width="0.9" stroke-linecap="round"/>
+                <polyline points="244,653 250,660 243,667" fill="none" stroke="rgba(180,210,230,0.1)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- rough note bracket, upper right -->
+                <path d="M 940,290 L 960,290 L 960,400 L 940,400"
+                      fill="none" stroke="rgba(180,210,230,0.09)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="960" y1="345" x2="980" y2="345" stroke="rgba(180,210,230,0.09)" stroke-width="0.8"/>
+
+                <!-- small cross/registration marks at corners of the drafting area -->
+                <g stroke="rgba(180,210,230,0.14)" stroke-width="0.8">
+                    <line x1="55" y1="60" x2="75" y2="60"/><line x1="65" y1="50" x2="65" y2="70"/>
+                    <line x1="1125" y1="60" x2="1145" y2="60"/><line x1="1135" y1="50" x2="1135" y2="70"/>
+                    <line x1="55" y1="840" x2="75" y2="840"/><line x1="65" y1="830" x2="65" y2="850"/>
+                    <line x1="1125" y1="840" x2="1145" y2="840"/><line x1="1135" y1="830" x2="1135" y2="850"/>
+                </g>
+
+            </svg>
+
             <div class="container">
                 <span class="section-label">Service Packages</span>
                 <h2 class="section-title">Digital stages for every story.</h2>
