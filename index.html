@@ -198,7 +198,9 @@
 
         .main-nav {
             display: flex;
-            gap: 1.5rem;
+            column-gap: 1.5rem;
+            row-gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .nav-link {
@@ -672,9 +674,21 @@
             }
 
             .header-wrap {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.75rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .main-nav {
+                gap: 0.85rem;
+                width: 100%;
+            }
+
+            .brand-name {
+                font-size: 1.15rem;
+                line-height: 1.2;
+                white-space: normal;
             }
             
             .ambient-portrait-bg {
@@ -700,7 +714,30 @@
 
             .motto-banner-title {
                 font-size: 2.6rem;
-                line-height: 1.0;
+                line-height: 1.05;
+            }
+
+            /* Consistent line-height for all large wrapping headings on mobile */
+            .hero-main-title {
+                line-height: 1.05;
+            }
+
+            .section-title {
+                line-height: 1.05;
+            }
+
+            .case-title {
+                line-height: 1.05;
+            }
+
+            .cta-card-heading {
+                line-height: 1.05;
+            }
+
+            /* Nav: tighten the row gap when links wrap to two lines */
+            .main-nav {
+                row-gap: 0.3rem;
+                column-gap: 0.85rem;
             }
         }
 
@@ -738,12 +775,49 @@
             background-color: rgba(212, 175, 55, 0.08) !important;
         }
 
+        /* ── Services intro layout with decorative icon ── */
+        .services-intro-layout {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .services-intro-text-block {
+            flex: 1;
+        }
+
+        .services-intro-icon {
+            flex-shrink: 0;
+            opacity: 0.85;
+        }
+
+        .services-intro-text-block .section-intro-text {
+            margin-bottom: 0;
+            max-width: 100%;
+        }
+
+        @media (max-width: 968px) {
+            .services-intro-icon {
+                display: none;
+            }
+            .services-intro-layout {
+                margin-bottom: 1.5rem;
+            }
+        }
+
         /* ── Services Grid ── */
         .services-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.25rem;
             margin-top: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .service-card {
@@ -1211,12 +1285,36 @@
             <div class="container">
                 <span class="section-label">Service Packages</span>
                 <h2 class="section-title">Digital stages for every story.</h2>
-                <p class="section-intro-text">
-                    In a world where technology can often feel automated and impersonal, I believe true credibility is built on transparency and inclusion. I design thoughtfully structured digital homes for organizations that prioritize real human impact, moving beyond simple web pages to create environments where every user can truly thrive.
-                </p>
-                <p class="section-intro-text" style="margin-top: 0.75rem;">
-                    Whether I am architecting Teacher Command Centers that help educators reclaim their time, or crafting audition-ready portfolios for performers, every project I lead is grounded in the essential standard that your site must be easy to perceive, navigate, and understand for everyone. This is design that is <strong style="color: var(--text-primary);">accessible by default</strong> — built with integrity from the first line of code to ensure your digital stage is ready for your entire community, without exception.
-                </p>
+                <div class="services-intro-layout">
+                    <div class="services-intro-text-block">
+                        <p class="section-intro-text">
+                            In a world where technology can often feel automated and impersonal, I believe true credibility is built on transparency and inclusion. I design thoughtfully structured digital homes for organizations that prioritize real human impact, moving beyond simple web pages to create environments where every user can truly thrive.
+                        </p>
+                        <p class="section-intro-text" style="margin-top: 0.4rem;">
+                            Whether I am architecting Teacher Command Centers that help educators reclaim their time, or crafting audition-ready portfolios for performers, every project I lead is grounded in the essential standard that your site must be easy to perceive, navigate, and understand for everyone. This is design that is <strong style="color: var(--text-primary);">accessible by default</strong> — built with integrity from the first line of code to ensure your digital stage is ready for your entire community, without exception.
+                        </p>
+                    </div>
+                    <div class="services-intro-icon" aria-hidden="true">
+                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" width="140" height="140">
+                            <!-- Stage curtains + spotlight concept -->
+                            <circle cx="80" cy="80" r="74" fill="none" stroke="rgba(212,175,55,0.12)" stroke-width="1"/>
+                            <circle cx="80" cy="80" r="55" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="1"/>
+                            <!-- Stage spotlight beam -->
+                            <path d="M80,20 L48,105 L112,105 Z" fill="rgba(212,175,55,0.07)" stroke="rgba(212,175,55,0.2)" stroke-width="0.75" stroke-linejoin="round"/>
+                            <!-- Stage floor line -->
+                            <line x1="30" y1="105" x2="130" y2="105" stroke="rgba(212,175,55,0.35)" stroke-width="1.5"/>
+                            <!-- Spotlight circle at top -->
+                            <circle cx="80" cy="20" r="5" fill="rgba(212,175,55,0.6)"/>
+                            <circle cx="80" cy="20" r="9" fill="none" stroke="rgba(212,175,55,0.25)" stroke-width="1"/>
+                            <!-- Left curtain hint -->
+                            <path d="M30,40 Q42,65 36,105" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5" stroke-linecap="round"/>
+                            <!-- Right curtain hint -->
+                            <path d="M130,40 Q118,65 124,105" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5" stroke-linecap="round"/>
+                            <!-- WCAG / accessibility mark -->
+                            <text x="80" y="93" text-anchor="middle" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="rgba(212,175,55,0.45)" text-transform="uppercase">WCAG AA</text>
+                        </svg>
+                    </div>
+                </div>
 
                 <div class="services-grid">
 
