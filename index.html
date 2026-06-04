@@ -160,6 +160,69 @@
             background: radial-gradient(ellipse at 50% 40%, transparent 30%, rgba(7,10,14,0.7) 100%);
         }
 
+        #services {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #services::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            pointer-events: none;
+            z-index: 0;
+
+            opacity: 0.06;
+
+            background-image:
+
+          /* vertical grid */
+            repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.18) 0px,
+            rgba(255,255,255,0.18) 1px,
+            transparent 1px,
+            transparent 80px
+        ),
+
+        /* horizontal grid */
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.18) 0px,
+            rgba(255,255,255,0.18) 1px,
+            transparent 1px,
+            transparent 80px
+        );
+
+    mix-blend-mode: screen;
+}
+
+        #services .container {
+    position: relative;
+    z-index: 1;
+}
+
+        #services::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 40%,
+            rgba(212,175,55,0.04) 50%,
+            transparent 60%
+        );
+
+    z-index: 0;
+}
+        
         .skip-link {
             position: absolute;
             top: -100px;
@@ -825,19 +888,12 @@
 
         /* ── Services intro layout with decorative icon ── */
         .services-intro-layout {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            margin-bottom: 2rem;
+            max-width: 900px;
+            margin: 0 auto 2rem auto;
         }
 
         .services-intro-text-block {
             flex: 1;
-        }
-
-        .services-intro-icon {
-            flex-shrink: 0;
-            opacity: 0.85;
         }
 
         .services-intro-text-block .section-intro-text {
@@ -1314,7 +1370,7 @@
     target="_blank"
     rel="noopener noreferrer"
     class="case-hyperlink"
-    aria-label="Visit the Everyday Advocates website (opens in a new tab)"><span>Explore the Project ↗</span></a>
+    aria-label="Visit the Everyday Advocates website (opens in a new tab)"><span>Explore the Project &#8599;</span></a>
                         </div>
                     </div>
 
@@ -1362,7 +1418,7 @@
                             </p>
                             <a href="https://zoemccray.com/"
    target="_blank"
-   class="case-hyperlink"><span>Explore the Project ↗</span></a>
+   class="case-hyperlink"><span>Explore the Project &#8599;</span></a>
                         </div>
                     </div>
                 </div>
@@ -1382,26 +1438,6 @@
                         <p class="section-intro-text" style="margin-top: 0.4rem;">
                             Whether I am architecting Teacher Command Centers that help educators reclaim their time, or crafting audition-ready portfolios for performers, every project I lead is grounded in the essential standard that your site must be easy to perceive, navigate, and understand for everyone. This is design that is <strong style="color: var(--text-primary);">accessible by default</strong> — built with integrity from the first line of code to ensure your digital stage is ready for your entire community, without exception.
                         </p>
-                    </div>
-                    <div class="services-intro-icon" aria-hidden="true">
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" width="140" height="140">
-                            <!-- Stage curtains + spotlight concept -->
-                            <circle cx="80" cy="80" r="74" fill="none" stroke="rgba(212,175,55,0.12)" stroke-width="1"/>
-                            <circle cx="80" cy="80" r="55" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="1"/>
-                            <!-- Stage spotlight beam -->
-                            <path d="M80,20 L48,105 L112,105 Z" fill="rgba(212,175,55,0.07)" stroke="rgba(212,175,55,0.2)" stroke-width="0.75" stroke-linejoin="round"/>
-                            <!-- Stage floor line -->
-                            <line x1="30" y1="105" x2="130" y2="105" stroke="rgba(212,175,55,0.35)" stroke-width="1.5"/>
-                            <!-- Spotlight circle at top -->
-                            <circle cx="80" cy="20" r="5" fill="rgba(212,175,55,0.6)"/>
-                            <circle cx="80" cy="20" r="9" fill="none" stroke="rgba(212,175,55,0.25)" stroke-width="1"/>
-                            <!-- Left curtain hint -->
-                            <path d="M30,40 Q42,65 36,105" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5" stroke-linecap="round"/>
-                            <!-- Right curtain hint -->
-                            <path d="M130,40 Q118,65 124,105" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5" stroke-linecap="round"/>
-                            <!-- WCAG / accessibility mark -->
-                            <text x="80" y="93" text-anchor="middle" font-family="Barlow, sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="rgba(212,175,55,0.45)" text-transform="uppercase">WCAG AA</text>
-                        </svg>
                     </div>
                 </div>
 
