@@ -1217,16 +1217,42 @@
             font-weight: 600;
         }
 
-        .service-price {
+        .service-cta {
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .service-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             font-family: var(--font-heading);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--accent-gold);
-            border-top: 1px solid var(--border-color);
-            padding-top: 0.65rem;
-            margin-top: 0.25rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            background: rgba(212, 175, 55, 0.06);
+            transition: all 0.2s ease;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .service-cta-link:hover {
+            background: rgba(212, 175, 55, 0.14);
+            border-color: var(--accent-gold);
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 480px) {
+            .service-cta-link {
+                font-size: 0.7rem;
+                padding: 0.5rem 0.75rem;
+            }
         }
             .trust-test-layout {
                 grid-template-columns: 1fr;
@@ -1620,7 +1646,11 @@
                             <li>Meets federal accessibility guidelines so all families are included</li>
                             <li>Accessible by Default — not a feature you have to ask for</li>
                         </ul>
-                        <p class="service-price">Starting at $1,500 &nbsp;·&nbsp; Range $1,500–$4,500</p>
+                        <div class="service-cta">
+                            <a href="mailto:benlswanson3@gmail.com?subject=Consultation%20Request%3A%20The%20Visionary%20Schoolfront" class="service-cta-link">
+                                ✦ Book a Free Consultation
+                            </a>
+                        </div>
                     </div>
 
                     <div class="service-card">
@@ -1636,7 +1666,11 @@
                             <li>Performance archive and press materials for grant applications</li>
                             <li>Accessible by Default — every audience member, every time</li>
                         </ul>
-                        <p class="service-price">Starting at $1,250 &nbsp;·&nbsp; Range $1,250–$3,500</p>
+                        <div class="service-cta">
+                            <a href="mailto:benlswanson3@gmail.com?subject=Consultation%20Request%3A%20The%20Digital%20Encore%20Suite" class="service-cta-link">
+                                ✦ Book a Free Consultation
+                            </a>
+                        </div>
                     </div>
 
                     <div class="service-card">
@@ -1652,7 +1686,11 @@
                             <li>Repertoire lists and press materials, organized and accessible</li>
                             <li>Accessible by Default — every casting director can use it</li>
                         </ul>
-                        <p class="service-price">Starting at $450 &nbsp;·&nbsp; Range $450–$1,200</p>
+                        <div class="service-cta">
+                            <a href="mailto:benlswanson3@gmail.com?subject=Consultation%20Request%3A%20The%20Leading%20Role%20Portfolio" class="service-cta-link">
+                                ✦ Book a Free Consultation
+                            </a>
+                        </div>
                     </div>
 
                     <div class="service-card service-card-faith">
@@ -1668,7 +1706,11 @@
                             <li>Built so people with disabilities can fully participate</li>
                             <li>Accessible by Default — a seat at the table for every visitor</li>
                         </ul>
-                        <p class="service-price">Starting at $800 &nbsp;·&nbsp; Range $800–$2,500</p>
+                        <div class="service-cta">
+                            <a href="mailto:benlswanson3@gmail.com?subject=Consultation%20Request%3A%20The%20Digital%20Sanctuary%20Solution" class="service-cta-link">
+                                ✦ Book a Free Consultation
+                            </a>
+                        </div>
                     </div>
 
                 </div>
