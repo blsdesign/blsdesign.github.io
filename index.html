@@ -1259,6 +1259,352 @@
             }
         }
 
+        /* ── America250 Campaign Banner ── */
+        .campaign-banner {
+            background: linear-gradient(90deg, #0d131a 0%, #141c27 40%, #0d131a 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+            padding: 0.65rem var(--section-padding-h);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .campaign-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 79px,
+                rgba(212, 175, 55, 0.04) 79px,
+                rgba(212, 175, 55, 0.04) 80px
+            );
+            pointer-events: none;
+        }
+
+        .campaign-banner-text {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .campaign-banner-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .campaign-banner-text .banner-tag {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-right: 0.5rem;
+        }
+
+        .campaign-banner-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bg-base);
+            background: var(--accent-gold);
+            padding: 0.45rem 1rem;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background 0.2s ease, transform 0.15s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .campaign-banner-btn:hover {
+            background: #b8941e;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 600px) {
+            .campaign-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.6rem;
+                padding: 0.75rem 1rem;
+            }
+        }
+
+        /* ── #launchpad Section ── */
+        #launchpad {
+            background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .launchpad-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .launchpad-eyebrow {
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .launchpad-headline {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            line-height: 1.0;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .launchpad-subhead {
+            font-family: var(--font-editorial);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto 0.5rem;
+            line-height: 1.5;
+        }
+
+        .launchpad-deadline {
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(212, 175, 55, 0.7);
+        }
+
+        .launchpad-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .launchpad-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .launchpad-card {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            transition: border-color 0.2s ease;
+        }
+
+        .launchpad-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .launchpad-card-path {
+            font-family: var(--font-heading);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+        }
+
+        .launchpad-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            line-height: 1.0;
+            color: var(--text-primary);
+        }
+
+        .launchpad-card-price {
+            font-family: var(--font-editorial);
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .launchpad-card-price span {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: normal;
+        }
+
+        .launchpad-card-body {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.55;
+            flex: 1;
+        }
+
+        .launchpad-card-body strong {
+            color: var(--text-primary);
+        }
+
+        .launchpad-deliverables {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.75rem;
+        }
+
+        .launchpad-deliverables li {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .launchpad-deliverables li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 0.6rem;
+            top: 0.1em;
+        }
+
+        /* Launchpad form */
+        .launchpad-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .launchpad-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+        }
+
+        @media (max-width: 480px) {
+            .launchpad-form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .lp-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .lp-field label {
+            font-family: var(--font-heading);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .lp-field input,
+        .lp-field textarea {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            padding: 0.6rem 0.75rem;
+            border-radius: 2px;
+            outline: none;
+            transition: border-color 0.2s ease;
+            width: 100%;
+        }
+
+        .lp-field input::placeholder,
+        .lp-field textarea::placeholder {
+            color: rgba(160, 174, 192, 0.45);
+        }
+
+        .lp-field input:focus,
+        .lp-field textarea:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .lp-field textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .lp-submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--accent-gold);
+            color: var(--bg-base);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.15s ease;
+            width: 100%;
+        }
+
+        .lp-submit-btn:hover {
+            background: #b8941e;
+            transform: translateY(-1px);
+        }
+
+        .lp-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Zelle note */
+        .launchpad-zelle-note {
+            text-align: center;
+            font-size: 0.78rem;
+            color: rgba(160, 174, 192, 0.55);
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.25rem;
+            line-height: 1.5;
+        }
+
+        .launchpad-zelle-note a {
+            color: rgba(212, 175, 55, 0.65);
+            text-decoration: none;
+        }
+
+        .launchpad-zelle-note a:hover {
+            color: var(--accent-gold);
+        }
+
     </style>
     
 </head>
@@ -1357,12 +1703,14 @@
     </div>
     <div class="ambient-gradient-overlay"></div>
 
-    <!-- Tasteful Top Identity Flag Badge -->
-    <div class="top-identity-flag">
-        <span>🏳️‍🌈</span> Proudly LGBTQIA+ Owned & Operated
-    </div>
+    <!-- Unified Utility Banner -->
+<div class="top-identity-flag" style="justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:0.55rem 1.5rem;">
+<div><span>🏳️‍🌈</span> Proudly LGBTQIA+ Owned & Operated</div>
+<div style="color:#d9dde5;">
+     <strong>America250 Launchpads</strong> • Professional Sites for 2026 Grads • <a href="#launchpad" style="color:#d4af37;">View Details →</a>
+</div></div>
 
-    <!-- Navigation Header -->
+<!-- Navigation Header -->
     <header class="site-header">
         <div class="container header-wrap">
             <a href="#" class="brand-name">Benjamin Lowell Swanson</a>
@@ -1371,6 +1719,7 @@
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#trust-test" class="nav-link">Trust Test</a>
                 <a href="#approach" class="nav-link">Approach</a>
+                <a href="#launchpad" class="nav-link" style="color: var(--accent-gold);">🚀 Launchpad</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
         </div>
@@ -1855,6 +2204,76 @@
                 </div>
             </div>
         </section>
+        
+<!-- America250 Professional Launchpad Campaign -->
+<section id="launchpad" aria-labelledby="launchpad-heading">
+<div class="container">
+<div class="launchpad-header">
+<span class="launchpad-eyebrow">America250 Initiative · Limited to 10 Sites</span>
+<h2 class="launchpad-headline" id="launchpad-heading">The Professional Launchpad</h2>
+<p class="launchpad-subhead">Professional websites for 2026 graduates and the people who believe in them. Purchase a Launchpad for yourself or sponsor one for someone else.</p>
+<p class="launchpad-deadline">10 spots total · $250 per site · Ends July 4</p>
+</div>
+
+<div class="launchpad-card" style="max-width:800px;margin:0 auto;">
+<h3 class="launchpad-card-title">One Simple Process</h3>
+<p class="launchpad-card-body">Whether you're investing in your own professional presence or sponsoring a graduate you believe in, complete the form below. After submission you'll be redirected to secure payment.</p>
+
+<form class="launchpad-form" id="launchpadForm" action="https://formsubmit.co/benlswanson3@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="America250 Launchpad Submission">
+<input type="hidden" name="_captcha" value="false">
+
+<div class="lp-field">
+<label>Who is this Launchpad for?</label>
+<select id="lpType" name="Request Type" style="background:#0d131a;color:white;padding:.6rem;border:1px solid rgba(255,255,255,.08)">
+<option value="Myself">Myself</option>
+<option value="Someone Else">Someone Else (Nomination)</option>
+</select>
+</div>
+
+<div id="selfFields">
+<div class="launchpad-form-row">
+<div class="lp-field"><label>Name</label><input name="Name" required></div>
+<div class="lp-field"><label>Email</label><input type="email" name="Email" required></div>
+</div>
+</div>
+
+<div id="nomineeFields" style="display:none;">
+<div class="launchpad-form-row">
+<div class="lp-field"><label>Your Name</label><input name="Sponsor Name"></div>
+<div class="lp-field"><label>Your Email</label><input type="email" name="Sponsor Email"></div>
+</div>
+<div class="launchpad-form-row">
+<div class="lp-field"><label>Nominee Name</label><input name="Nominee Name"></div>
+<div class="lp-field"><label>Nominee Email</label><input type="email" name="Nominee Email"></div>
+</div>
+<div class="lp-field"><label>Why are you sponsoring them?</label><textarea name="Sponsorship Reason"></textarea></div>
+</div>
+
+<button class="lp-submit-btn" type="submit">Continue to Secure Payment →</button>
+</form>
+</div>
+</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+ const type=document.getElementById('lpType');
+ const self=document.getElementById('selfFields');
+ const nom=document.getElementById('nomineeFields');
+ type.addEventListener('change',function(){
+   const sponsor=this.value==='Someone Else';
+   self.style.display=sponsor?'none':'block';
+   nom.style.display=sponsor?'block':'none';
+ });
+ document.getElementById('launchpadForm').addEventListener('submit',function(){
+   setTimeout(function(){
+      window.location.href='https://pay.bluevine.com/p/9533bd5bff87469fb3b4a6cb386d4ee6';
+   },500);
+ });
+});
+</script>
+
     </main>
 
     <!-- Clean Structural Identity Footer -->
@@ -1895,6 +2314,62 @@
         }
 
         checkboxes.forEach(cb => cb.addEventListener('change', updateScore));
+    </script>
+    <script>
+        // ── America250 Launchpad Form Handler ──
+        // Fire-and-forget: sends nominee/buyer info to FormSubmit, then
+        // immediately redirects to Bluevine payment regardless of send outcome.
+        // Payment is never blocked by the form submission.
+
+        const BLUEVINE_URL = 'https://pay.bluevine.com/p/9533bd5bff87469fb3b4a6cb386d4ee6';
+        const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/benlswanson3@gmail.com';
+
+        function handleLaunchpadSubmit(formId) {
+            const form = document.getElementById(formId);
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Basic client-side validation
+                const requiredFields = form.querySelectorAll('[required]');
+                let valid = true;
+                requiredFields.forEach(function(field) {
+                    if (!field.value.trim()) {
+                        field.style.borderColor = '#e05555';
+                        valid = false;
+                    } else {
+                        field.style.borderColor = '';
+                    }
+                });
+                if (!valid) return;
+
+                // Build form data
+                const data = new FormData(form);
+
+                // Fire-and-forget: we do NOT await this
+                // A short abort timeout ensures a hung request can't delay the redirect
+                const controller = new AbortController();
+                const timeout = setTimeout(function() { controller.abort(); }, 4000);
+
+                fetch(FORMSUBMIT_ENDPOINT, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' },
+                    signal: controller.signal
+                }).finally(function() {
+                    clearTimeout(timeout);
+                }).catch(function() {
+                    // Silently ignore errors — payment always proceeds
+                });
+
+                // Proceed to Bluevine immediately — do not wait on the fetch
+                window.location.href = BLUEVINE_URL;
+            });
+        }
+
+        handleLaunchpadSubmit('form-path-a');
+        handleLaunchpadSubmit('form-path-b');
     </script>
 
 </body>
